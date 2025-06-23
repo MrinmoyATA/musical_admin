@@ -27,7 +27,6 @@ export const useAuthStore = defineStore("auth", {
         "http://127.0.0.1:8000/api/v1/admin/login",
         payload
       )
-
       this.token = response.data.token
       this.user = response.data.user
 
