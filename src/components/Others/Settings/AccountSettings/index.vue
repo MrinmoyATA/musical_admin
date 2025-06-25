@@ -3,7 +3,7 @@
     class="trezo-card bg-white dark:bg-[#0c1427] mb-[25px] p-[20px] md:p-[25px] rounded-md"
   >
     <div class="trezo-card-content">
-      <SettingsNav />
+
 
       <form>
         <h5 class="text-lg mb-[6px]">Profile</h5>
@@ -300,12 +300,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import SettingsNav from "../SettingsNav.vue";
 
 export default defineComponent({
   name: "AccountSettings",
   components: {
-    SettingsNav,
+   
   },
 });
 </script>

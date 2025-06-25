@@ -57,57 +57,6 @@
             >
               <div class="flex items-center">
                 <img
-                  src="@/assets/images/flags/france.svg"
-                  class="w-[30px] ltr:mr-[10px] rtl:ml-[10px]"
-                  alt="france"
-                />
-                French
-              </div>
-            </button>
-          </li>
-          <li
-            class="border-t border-dashed border-gray-100 dark:border-[#172036]"
-          >
-            <button
-              type="button"
-              class="text-black dark:text-white px-[20px] py-[12px] d-block w-full font-medium"
-            >
-              <div class="flex items-center">
-                <img
-                  src="@/assets/images/flags/germany.svg"
-                  class="w-[30px] ltr:mr-[10px] rtl:ml-[10px]"
-                  alt="germany"
-                />
-                German
-              </div>
-            </button>
-          </li>
-          <li
-            class="border-t border-dashed border-gray-100 dark:border-[#172036]"
-          >
-            <button
-              type="button"
-              class="text-black dark:text-white px-[20px] py-[12px] d-block w-full font-medium"
-            >
-              <div class="flex items-center">
-                <img
-                  src="@/assets/images/flags/portugal.svg"
-                  class="w-[30px] ltr:mr-[10px] rtl:ml-[10px]"
-                  alt="portugal"
-                />
-                Portuguese
-              </div>
-            </button>
-          </li>
-          <li
-            class="border-t border-dashed border-gray-100 dark:border-[#172036]"
-          >
-            <button
-              type="button"
-              class="text-black dark:text-white px-[20px] py-[12px] d-block w-full font-medium"
-            >
-              <div class="flex items-center">
-                <img
                   src="@/assets/images/flags/spain.svg"
                   class="w-[30px] ltr:mr-[10px] rtl:ml-[10px]"
                   alt="spain"

@@ -19,15 +19,12 @@
 
       <ProfileInformation />
 
-      <AdditionalInformation />
     </div>
 
     <div class="lg:col-span-2 2xl:col-span-3">
       <ProjectsAnalysisChart />
 
       <ToDoList />
-
-      <RecentActivity />
     </div>
   </div>
 </template>
@@ -39,10 +36,9 @@ import TotalOrders from "./TotalOrders.vue";
 import TotalRevenue from "./TotalRevenue.vue";
 import ProfileIntro from "./ProfileIntro.vue";
 import ProfileInformation from "./ProfileInformation.vue";
-import AdditionalInformation from "./AdditionalInformation.vue";
 import ProjectsAnalysisChart from "./ProjectsAnalysisChart.vue";
 import ToDoList from "./ToDoList.vue";
-import RecentActivity from "./RecentActivity.vue";
+
 
 export default {
   name: "MyProfile",
@@ -53,10 +49,8 @@ export default {
     TotalRevenue,
     ProfileIntro,
     ProfileInformation,
-    AdditionalInformation,
     ProjectsAnalysisChart,
     ToDoList,
-    RecentActivity,
   },
 };
 </script>

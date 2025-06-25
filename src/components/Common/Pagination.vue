@@ -1,77 +1,95 @@
 <template>
   <div class="pt-[12px] md:pt-[14px] sm:flex sm:items-center justify-between">
-    <p class="mb-0 text-sm">Showing {{ items }} of {{ total }} results</p>
-    <ol class="mt-[10px] sm:mt-0">
-      <li
-        class="inline-block mx-[3px] ltr:first:ml-0 ltr:last:mr-0 rtl:first:mr-0 rtl:last:ml-0"
-      >
-        <a
-          href="javascript:void(0);"
-          class="w-[31px] h-[31px] block leading-[29px] relative text-center rounded-md border border-gray-100 dark:border-[#172036] transition-all hover:bg-primary-500 hover:text-white hover:border-primary-500"
+    <p class="mb-0 text-sm">
+      Showing {{ from }} - {{ to }} of {{ total }} results
+    </p>
+    <ol class="mt-[10px] sm:mt-0 flex flex-wrap gap-1">
+      <!-- Prev Button -->
+      <li>
+        <button
+          :disabled="currentPage <= 1"
+          @click="$emit('change', currentPage - 1)"
+          class="w-[31px] h-[31px] block text-center rounded-md border transition-all"
+          :class="{
+            'hover:bg-primary-500 hover:text-white hover:border-primary-500': currentPage > 1,
+            'text-gray-300 cursor-not-allowed': currentPage <= 1
+          }"
         >
-          <span class="opacity-0"> 0 </span>
-          <i
-            class="material-symbols-outlined left-0 right-0 absolute top-1/2 -translate-y-1/2"
-          >
-            chevron_left
-          </i>
-        </a>
+          <i class="material-symbols-outlined">chevron_left</i>
+        </button>
       </li>
-      <li
-        class="inline-block mx-[3px] ltr:first:ml-0 ltr:last:mr-0 rtl:first:mr-0 rtl:last:ml-0"
-      >
-        <a
-          href="javascript:void(0);"
-          class="w-[31px] h-[31px] block leading-[29px] relative text-center rounded-md border border-primary-500 bg-primary-500 text-white"
+
+      <!-- Page Numbers -->
+      <li v-for="page in pagesToShow" :key="page">
+        <button
+          @click="$emit('change', page)"
+          class="w-[31px] h-[31px] block text-center rounded-md border"
+          :class="{
+            'bg-primary-500 text-white border-primary-500': page === currentPage,
+            'hover:bg-primary-500 hover:text-white hover:border-primary-500': page !== currentPage
+          }"
         >
-          1
-        </a>
+          {{ page }}
+        </button>
       </li>
-      <li
-        class="inline-block mx-[3px] ltr:first:ml-0 ltr:last:mr-0 rtl:first:mr-0 rtl:last:ml-0"
-      >
-        <a
-          href="javascript:void(0);"
-          class="w-[31px] h-[31px] block leading-[29px] relative text-center rounded-md border border-gray-100 dark:border-[#172036] transition-all hover:bg-primary-500 hover:text-white hover:border-primary-500"
+
+      <!-- Next Button -->
+      <li>
+        <button
+          :disabled="currentPage >= lastPage"
+          @click="$emit('change', currentPage + 1)"
+          class="w-[31px] h-[31px] block text-center rounded-md border transition-all"
+          :class="{
+            'hover:bg-primary-500 hover:text-white hover:border-primary-500': currentPage < lastPage,
+            'text-gray-300 cursor-not-allowed': currentPage >= lastPage
+          }"
         >
-          2
-        </a>
-      </li>
-      <li
-        class="inline-block mx-[3px] ltr:first:ml-0 ltr:last:mr-0 rtl:first:mr-0 rtl:last:ml-0"
-      >
-        <a
-          href="javascript:void(0);"
-          class="w-[31px] h-[31px] block leading-[29px] relative text-center rounded-md border border-gray-100 dark:border-[#172036] transition-all hover:bg-primary-500 hover:text-white hover:border-primary-500"
-        >
-          3
-        </a>
-      </li>
-      <li
-        class="inline-block mx-[3px] ltr:first:ml-0 ltr:last:mr-0 rtl:first:mr-0 rtl:last:ml-0"
-      >
-        <a
-          href="javascript:void(0);"
-          class="w-[31px] h-[31px] block leading-[29px] relative text-center rounded-md border border-gray-100 dark:border-[#172036] transition-all hover:bg-primary-500 hover:text-white hover:border-primary-500"
-        >
-          <span class="opacity-0"> 0 </span>
-          <i
-            class="material-symbols-outlined left-0 right-0 absolute top-1/2 -translate-y-1/2"
-          >
-            chevron_right
-          </i>
-        </a>
+          <i class="material-symbols-outlined">chevron_right</i>
+        </button>
       </li>
     </ol>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 
 export default defineComponent({
-  // eslint-disable-next-line vue/multi-word-component-names
-  name: "Pagination",
-  props: ["items", "total"],
+  name: "AppPagination",
+  props: {
+    currentPage: {
+      type: Number,
+      required: true,
+    },
+    lastPage: {
+      type: Number,
+      required: true,
+    },
+    total: {
+      type: Number,
+      required: true,
+    },
+    from: {
+      type: Number,
+      required: true,
+    },
+    to: {
+      type: Number,
+      required: true,
+    },
+  },
+  setup(props) {
+    const pagesToShow = computed(() => {
+      const pages = [];
+      for (let i = 1; i <= props.lastPage; i++) {
+        pages.push(i);
+      }
+      return pages;
+    });
+
+    return {
+      pagesToShow,
+    };
+  },
 });
 </script>

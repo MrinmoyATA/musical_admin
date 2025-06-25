@@ -3,7 +3,6 @@
     class="trezo-card bg-white dark:bg-[#0c1427] mb-[25px] p-[20px] md:p-[25px] rounded-md"
   >
     <div class="trezo-card-content">
-      <SettingsNav />
 
       <form>
         <div class="sm:grid sm:grid-cols-2 sm:gap-[25px]">
@@ -99,12 +98,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import SettingsNav from "../SettingsNav.vue";
 
 export default defineComponent({
   name: "ChangePassword",
   components: {
-    SettingsNav,
+    
   },
 });
 </script>
