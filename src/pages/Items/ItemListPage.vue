@@ -15,7 +15,7 @@
                             </form>
                         </div>
                         <div class="trezo-card-subtitle mt-[15px] sm:mt-0">
-                            <RouterLink to="/ecommerce/create-product"
+                            <RouterLink to="/item/create"
                                 class="inline-block transition-all rounded-md font-medium px-[13px] py-[6px] text-primary-500 border border-primary-500 hover:bg-primary-500 hover:text-white"
                                 id="add-new-popup-toggle">
                                 <span class="inline-block relative ltr:pl-[22px] rtl:pr-[22px]">
@@ -37,36 +37,30 @@
                                 <thead class="text-black dark:text-white">
                                     <tr>
                                         <th
-                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap">
+                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap ltr:text-left rtl:text-right">
                                             ID</th>
                                         <th
-                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap">
+                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap ltr:text-left rtl:text-right">
                                             Product
                                         </th>
                                         <th
-                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap">
+                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap ltr:text-left rtl:text-right">
                                             Category
                                         </th>
                                         <th
-                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap">
+                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap ltr:text-left rtl:text-right">
                                             Price</th>
+
                                         <th
-                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap">
-                                            Order</th>
-                                        <th
-                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap">
+                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap ltr:text-left rtl:text-right">
                                             Stock</th>
+   
+
                                         <th
-                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap">
-                                            Amount</th>
-                                        <th
-                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap">
-                                            Rating</th>
-                                        <th
-                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap">
+                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap ltr:text-left rtl:text-right">
                                             Status</th>
                                         <th
-                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap">
+                                            class="font-medium px-[20px] py-[11px] bg-gray-50 dark:bg-[#15203c] whitespace-nowrap ltr:text-left rtl:text-right">
                                             Active</th>
                                     </tr>
                                 </thead>
@@ -80,7 +74,7 @@
                                         <td class="px-[20px] py-[15px] border-b border-gray-100 dark:border-[#172036]">
                                             <div class="flex items-center">
                                                 <div class="rounded-md w-[40px] h-[40px] overflow-hidden">
-                                                    <img v-if="item.image" :src="`/storage/${item.image}`"
+                                                    <img v-if="item.image" :src="getImageUrl(item?.image || '')"
                                                         class="inline-block rounded-md object-cover w-full h-full"
                                                         alt="product-image" />
                                                     <div v-else
@@ -101,27 +95,17 @@
                                         </td>
 
                                         <td class="px-[20px] py-[15px] border-b border-gray-100 dark:border-[#172036]">
-                                            #{{ item.category_id }}</td>
+                                            {{ item.category?.name || `#${item.category_id}` }}
+                                        </td>
 
                                         <td class="px-[20px] py-[15px] border-b border-gray-100 dark:border-[#172036]">
-                                            ${{ item.price_per_hour.toFixed(2) }}
+                                            ${{ Number(item.price_per_hour ?? 0).toFixed(2) }}
                                         </td>
 
-                                        <td class="px-[20px] py-[15px] border-b border-gray-100 dark:border-[#172036]">—
-                                        </td>
-                                        <!-- Order count placeholder -->
 
                                         <td class="px-[20px] py-[15px] border-b border-gray-100 dark:border-[#172036]">
                                             {{ item.is_available ? "Available" : "Out of Stock" }}
                                         </td>
-
-                                        <td class="px-[20px] py-[15px] border-b border-gray-100 dark:border-[#172036]">—
-                                        </td>
-                                        <!-- Amount placeholder -->
-
-                                        <td class="px-[20px] py-[15px] border-b border-gray-100 dark:border-[#172036]">—
-                                        </td>
-                                        <!-- Rating placeholder -->
 
                                         <td class="px-[20px] py-[15px] border-b border-gray-100 dark:border-[#172036]">
                                             <span
@@ -132,11 +116,11 @@
 
                                         <td class="px-[20px] py-[15px] border-b border-gray-100 dark:border-[#172036]">
                                             <div class="flex items-center gap-[9px]">
-                                                <RouterLink :to="`/ecommerce/product-details/${item.id}`"
+                                                <RouterLink :to="`/item/${item.id}/show`"
                                                     class="text-primary-500 custom-tooltip" v-tooltip="'View'">
                                                     <i class="material-symbols-outlined !text-md">visibility</i>
                                                 </RouterLink>
-                                                <RouterLink :to="`/ecommerce/edit-product/${item.id}`"
+                                                <RouterLink :to="`/item/${item.id}/edit`"
                                                     class="text-gray-500 dark:text-gray-400 custom-tooltip"
                                                     v-tooltip="'Edit'">
                                                     <i class="material-symbols-outlined !text-md">edit</i>
@@ -152,79 +136,83 @@
                             </table>
                         </div>
 
-                        <Pagination v-if="pagination" :items="pagination.per_page" :total="pagination.total"
-                            :current-page="pagination.current_page" @page-change="onPageChange" />
+                        <Pagination v-if="pagination && pagination.total" :items="pagination.per_page || 10"
+                            :total="pagination.total || 0" :current-page="pagination.current_page || 1"
+                            :last-page="pagination.last_page || 1" :from="pagination.from || 1"
+                            :to="pagination.to || pagination.per_page || 10" @page-change="onPageChange" />
+
 
                     </div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, computed } from "vue";
 import { useItemStore } from "@/stores/ItemStore";
 import Pagination from "@/components/Common/Pagination.vue";
+import { getImageUrl } from "@/utils/helpers";
 
 export default defineComponent({
-  name: "ProductsList",
-  components: { Pagination },
-  setup() {
-    const itemStore = useItemStore();
-    const loading = ref(false);
-    const activeTab = ref("allProducts");
-    const searchQuery = ref("");
+    name: "ProductsList",
+    components: { Pagination },
+    setup() {
+        
+        const itemStore = useItemStore();
+        const loading = ref(false);
+        const activeTab = ref("allProducts");
+        const searchQuery = ref("");
+        const items = computed(() => itemStore.items);
+        const pagination = computed(() => itemStore.pagination);
 
-    // Computed wrappers for reactive access
-    const items = computed(() => itemStore.items);
-    const pagination = computed(() => itemStore.pagination);
+        const fetchItems = async (page = 1) => {
+            loading.value = true;
+            try {
+                await itemStore.getItems({ page, search: searchQuery.value });
+                console.log(itemStore.items);
+                console.log(itemStore.pagination);
+            } catch (error) {
+                console.error("Error loading items:", error);
+            } finally {
+                loading.value = false;
+            }
+        };
 
-    const fetchItems = async (page = 1) => {
-      loading.value = true;
-      try {
-        await itemStore.getItems({ page, search: searchQuery.value });
-      console.log(itemStore.items);
-console.log(itemStore.pagination);
-      } catch (error) {
-        console.error("Error loading items:", error);
-      } finally {
-        loading.value = false;
-      }
-    };
+        fetchItems();
 
-    fetchItems();
+        const onPageChange = (page: number) => {
+            fetchItems(page);
+        };
 
-    const onPageChange = (page: number) => {
-      fetchItems(page);
-    };
+        const onSearch = () => {
+            fetchItems(1);
+        };
 
-    const onSearch = () => {
-      fetchItems(1);
-    };
+        const deleteItem = async (id: number) => {
+            if (!confirm("Are you sure you want to delete this item?")) return;
+            try {
+                await itemStore.deleteItem(id);
+                fetchItems(pagination.value?.current_page || 1);
+            } catch (error) {
+                console.error("Failed to delete item:", error);
+            }
+        };
 
-    const deleteItem = async (id: number) => {
-      if (!confirm("Are you sure you want to delete this item?")) return;
-      try {
-        await itemStore.deleteItem(id);
-        fetchItems(pagination.value?.current_page || 1);
-      } catch (error) {
-        console.error("Failed to delete item:", error);
-      }
-    };
-
-    return {
-      activeTab,
-      searchQuery,
-      loading,
-      items,
-      pagination,
-      fetchItems,
-      onPageChange,
-      onSearch,
-      deleteItem,
-    };
-  },
+        return {
+            activeTab,
+            searchQuery,
+            loading,
+            items,
+            pagination,
+            fetchItems,
+            onPageChange,
+            onSearch,
+            deleteItem,
+            getImageUrl
+        };
+    },
 });
 
 </script>

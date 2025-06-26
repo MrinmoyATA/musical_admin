@@ -94,7 +94,7 @@
                     to="/items"
                     class="sidemenu-link rounded-md flex items-center relative transition-all font-medium text-gray-500 dark:text-gray-400 py-[9px] ltr:pl-[38px] ltr:pr-[30px] rtl:pr-[38px] rtl:pl-[30px] hover:text-primary-500 hover:bg-primary-50 w-full text-left dark:hover:bg-[#15203c]"
                   >
-                    Food/Istrument list
+                   List
                   </RouterLink>
                 </li>
                 <li class="sidemenu-item mb-[4px] last:mb-0">
@@ -102,7 +102,7 @@
                     to="/item/create"
                     class="sidemenu-link rounded-md flex items-center relative transition-all font-medium text-gray-500 dark:text-gray-400 py-[9px] ltr:pl-[38px] ltr:pr-[30px] rtl:pr-[38px] rtl:pl-[30px] hover:text-primary-500 hover:bg-primary-50 w-full text-left dark:hover:bg-[#15203c]"
                   >
-                    Food/Istrument Add
+                    Add
                   </RouterLink>
                 </li>
 
@@ -126,13 +126,13 @@
                 <li class="sidemenu-item mb-[4px] last:mb-0">
                   <RouterLink to="/ecommerce/products-list"
                     class="sidemenu-link rounded-md flex items-center relative transition-all font-medium text-gray-500 dark:text-gray-400 py-[9px] ltr:pl-[38px] ltr:pr-[30px] rtl:pr-[38px] rtl:pl-[30px] hover:text-primary-500 hover:bg-primary-50 w-full text-left dark:hover:bg-[#15203c]">
-                    Products List
+                    Food/instrument List
                   </RouterLink>
                 </li>
                 <li class="sidemenu-item mb-[4px] last:mb-0">
                   <RouterLink to="/ecommerce/product-details"
                     class="sidemenu-link rounded-md flex items-center relative transition-all font-medium text-gray-500 dark:text-gray-400 py-[9px] ltr:pl-[38px] ltr:pr-[30px] rtl:pr-[38px] rtl:pl-[30px] hover:text-primary-500 hover:bg-primary-50 w-full text-left dark:hover:bg-[#15203c]">
-                    Product Details
+                    Food/instrument Add
                   </RouterLink>
                 </li>
                 <li class="sidemenu-item mb-[4px] last:mb-0">
