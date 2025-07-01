@@ -44,251 +44,226 @@ import ErrorPage from "../pages/ErrorPage.vue";
 import ProductCategoryList from "@/components/Pages/Category/ProductCategoryList.vue";
 import ProductCategoryAdd from "@/components/Pages/Category/ProductCategoryAdd.vue";
 import ProductCategoryEdit from "@/components/Pages/Category/ProductCategoryEdit.vue";
-// items
-import ItemListPage from "../pages/Items/ItemListPage.vue"
-import ItemEditPage from "../pages/Items/ItemEditPage.vue" 
-import ItemAddPage from "../pages/Items/ItemAddPage.vue" 
-import ItemShowPage from "../pages/Items/ItemShowPage.vue" 
+
+
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/dashboard",
     name: "EcommercePage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: EcommercePage,
   },
   {
     path: "/ecommerce/products-list",
     name: "ProductsListPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: ProductsListPage,
   },
   {
     path: "/ecommerce/product-details",
     name: "ProductDetailsPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: ProductDetailsPage,
   },
   {
     path: "/ecommerce/create-product",
     name: "CreateProductPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: CreateProductPage,
   },
   {
     path: "/ecommerce/edit-product",
     name: "EditProductPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: EditProductPage,
   },
   // category
   {
     path: "/categories",
     name: "CategoryProduct",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: ProductCategoryList,
   },
   {
     path: "/category/add",
     name: "CategoryAdd",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: ProductCategoryAdd,
   },
   {
     path: "/category/edit/:id",
     name: "CategoryEdit",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: ProductCategoryEdit,
   },
-// Item
-  {
-    path: "/items",
-    name: "item.index",
-    meta: { requiresAuth: true, role: "admin" },
-    component: ItemListPage,
-  },
-  {
-    path: "/item/:id/show",
-    name: "item.show",
-    meta: { requiresAuth: true, role: "admin" },
-    component: ItemShowPage,
-  },
-    {
-    path: "/item/create",
-    name: "item.create",
-    meta: { requiresAuth: true, role: "admin" },
-    component: ItemAddPage,
-  },
-    {
-    path: "/item/:id/edit",
-    name: "item.edit",
-    meta: { requiresAuth: true, role: "admin" },
-    component: ItemEditPage,
-  },
+
+
+
   {
     path: "/ecommerce/cart",
     name: "CartPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: CartPage,
   },
   {
     path: "/ecommerce/checkout",
     name: "CheckoutPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: CheckoutPage,
   },
   {
     path: "/ecommerce/orders",
     name: "OrdersPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: OrdersPage,
   },
   {
     path: "/ecommerce/order-details",
     name: "OrderDetailsPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: OrderDetailsPage,
   },
   {
     path: "/ecommerce/create-order",
     name: "CreateOrderPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: CreateOrderPage,
   },
   {
     path: "/ecommerce/order-tracking",
     name: "OrderTrackingPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: OrderTrackingPage,
   },
   {
     path: "/ecommerce/customers",
     name: "CustomersPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: CustomersPage,
   },
   {
     path: "/ecommerce/customer-details",
     name: "CustomerDetailsPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: CustomerDetailsPage,
   },
   {
     path: "/ecommerce/categories",
     name: "CategoriesPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: CategoriesPage,
   },
 
   {
     path: "/ecommerce/sellers",
     name: "SellersPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: SellersPage,
   },
   {
     path: "/ecommerce/seller-details",
     name: "SellerDetailsPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: SellerDetailsPage,
   },
   {
     path: "/ecommerce/create-seller",
     name: "CreateSellerPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: CreateSellerPage,
   },
   {
     path: "/ecommerce/reviews",
     name: "ReviewsPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: ReviewsPage,
   },
   {
     path: "/ecommerce/refunds",
     name: "RefundsPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: RefundsPage,
   },
 
   {
     path: "/finance/wallet",
     name: "WalletPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: WalletPage,
   },
   {
     path: "/finance/transactions",
     name: "TransactionPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: TransactionPage,
   },
   {
     path: "/events/events-grid",
     name: "EventsPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: EventsPage,
   },
   {
     path: "/events/events-list",
     name: "EventsListPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: EventsListPage,
   },
   {
     path: "/events/event-details",
     name: "EventDetailsPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: EventDetailsPage,
   },
   {
     path: "/events/create-an-event",
     name: "CreateAnEventPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: CreateAnEventPage,
   },
   {
     path: "/events/edit-an-event",
     name: "EditAnEventPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: EditAnEventPage,
   },
 
   {
     path: "/invoices/invoices-lists",
     name: "InvoicesPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: InvoicesPage,
   },
   {
     path: "/invoices/invoice-details",
     name: "InvoiceDetailsPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: InvoiceDetailsPage,
   },
   {
     path: "/invoices/create-invoice",
     name: "CreateInvoicePage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: CreateInvoicePage,
   },
   {
     path: "/invoices/edit-invoice",
     name: "EditInvoicePage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: EditInvoicePage,
   },
 
   {
     path: "/users/users-list",
     name: "UsersListPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: UsersListPage,
   },
   {
     path: "/users/add-user",
     name: "AddUserPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: AddUserPage,
   },
 
@@ -299,47 +274,42 @@ const routes: Array<RouteRecordRaw> = [
     meta: { requiresAuth: false },
   },
 
-  {
-    path: "/authentication/forgot-password",
-    name: "ForgotPasswordPage",
-    meta: { requiresAuth: true, role: "admin" },
-    component: ForgotPasswordPage,
-  },
+
   {
     path: "/authentication/reset-password",
     name: "ResetPasswordPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: ResetPasswordPage,
   },
 
   {
     path: "/authentication/logout",
     name: "LogOutPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: LogOutPage,
   },
 
   {
     path: "/my-profile",
     name: "MyProfilePage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: MyProfilePage,
   },
   {
     path: "/settings/account-settings",
     name: "AccountSettingsPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: AccountSettingsPage,
   },
   {
     path: "/settings/change-password",
     name: "ChangePasswordPage",
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     component: ChangePasswordPage,
   },
 
   {
-    meta: { requiresAuth: true, role: "admin" },
+    // meta: { requiresAuth: true, role: "admin" },
     path: "/:pathMatch(.*)*",
     name: "ErrorPage",
     component: ErrorPage,
